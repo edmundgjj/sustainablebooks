@@ -24,6 +24,7 @@
         <li>{{book.title}}
             {% cloudinary book.cover %}
             <a href="{% url 'update_book_route' book_id=book.id %}">Edit</a>
+            <a href="{% url 'add_to_cart' book_id=book.id %}">Add to Cart</a>  
         </li>
         {%endfor%}
     </ul>

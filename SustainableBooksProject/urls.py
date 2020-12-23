@@ -20,10 +20,7 @@ import books.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('books/', books.views.index),
-    path('books/create', books.views.create_book),
-    path('books/update/<book_id>', books.views.update_book,
-         name='update_book_route')
-
+    path('books/', include('books.urls')),
+    path('cart/', include('cart.urls'))
 
 ]

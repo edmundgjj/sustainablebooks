@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'cloudinary',
 
     # my apps
-    'books'
+    'books',
+    'cart'
 ]
 
 MIDDLEWARE = [
