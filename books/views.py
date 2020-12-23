@@ -1,14 +1,18 @@
+from django.contrib import messages
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from .models import Book
-from .forms import BookForm
+from .forms import BookForm, SearchForm
 from django.contrib.auth.decorators import login_required, permission_required
+
 # Create your views here.
 
 
 def index(request):
     books = Book.objects.all()
+    search_form = SearchForm(request.GET)
     return render(request, 'books/index.template.html', {
-        'books': books
+        'books': books,
+        'search_form': search_form
     })
 
 
@@ -19,6 +23,8 @@ def create_book(request):
 
         if create_form.is_valid():
             create_form.save()
+            messages.success(
+                request, f"New book {create_form.cleaned_data['title']} has been created")
             return redirect(reverse(index))
         else:
             return render(request, 'books/createbook.template.html', {
@@ -39,6 +45,8 @@ def update_book(request, book_id):
         book_form = BookForm(request.POST, instance=book_being_updated)
         if book_form.is_valid():
             book_form.save()
+            messages.success(
+                request, f"Book {book_form.cleaned_data['title']} has been updated")
             return redirect(reverse(index))
         else:
             return render(request, 'books/updatebook.template.html', {
