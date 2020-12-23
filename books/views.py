@@ -1,18 +1,20 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from .models import Book
 from .forms import BookForm
-
+from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 
 
 def index(request):
     books = Book.objects.all()
     return render(request, 'books/index.template.html', {
-        'books':books
+        'books': books
     })
 
+
+@login_required
 def create_book(request):
-    if request.method == 'POST': 
+    if request.method == 'POST':
         create_form = BookForm(request.POST)
 
         if create_form.is_valid():
@@ -27,6 +29,7 @@ def create_book(request):
         return render(request, 'books/createbook.template.html', {
             'form': create_form
         })
+
 
 def update_book(request, book_id):
     book_being_updated = get_object_or_404(Book, pk=book_id)
