@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -17,6 +18,7 @@ class Book(models.Model):
     desc = models.TextField(blank=False)
     price = models.FloatField(blank=False)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    cover = CloudinaryField()
 
     def __str__(self):
         return self.title

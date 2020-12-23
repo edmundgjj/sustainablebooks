@@ -1,14 +1,36 @@
 from django.contrib import messages
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
-from .models import Book
+from .models import Book, Genre
 from .forms import BookForm, SearchForm
 from django.contrib.auth.decorators import login_required, permission_required
+from django.db.models import Q
 
 # Create your views here.
 
 
 def index(request):
     books = Book.objects.all()
+
+    # when a search query is submitted
+    if request.GET:
+        # always true query:
+        queries = ~Q(pk__in=[])
+
+        # if a title is specified, add it to the query
+        if 'title' in request.GET and request.GET['title']:
+            title = request.GET['title']
+            queries = queries & Q(title__icontains=title)
+
+        # if a genre is specified, add it to the query
+        if 'genre' in request.GET and request.GET['genre']:
+            print("adding genre")
+            genre = request.GET['genre']
+            queries = queries & Q(genre__in=genre)
+
+        # update the existing book found
+        books = books.filter(queries)
+
+    genres = Genre.objects.all()
     search_form = SearchForm(request.GET)
     return render(request, 'books/index.template.html', {
         'books': books,
