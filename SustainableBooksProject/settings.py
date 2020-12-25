@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     # my apps
     'books',
     'cart',
-    'checkout'
+    'checkout',
+    'home'
 ]
 
 MIDDLEWARE = [

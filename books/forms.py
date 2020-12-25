@@ -9,6 +9,8 @@ class BookForm(forms.ModelForm):
         fields = ('title', 'author', 'desc', 'price', 'version', 'genre')
     cover = CloudinaryJsFileField()
 
+
 class SearchForm(forms.Form):
     title = forms.CharField(max_length=100, required=False)
-    genre = forms.ModelChoiceField(queryset=Genre.objects.all(), required=False)
+    genre = forms.ModelChoiceField(
+        queryset=Genre.objects.all(), required=False)
