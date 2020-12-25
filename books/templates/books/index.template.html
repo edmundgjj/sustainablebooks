@@ -4,29 +4,46 @@
 {% load cloudinary %}
 
 {%block content%}
+<div class="container-fluid">
+    <h1 class="mt-5">Browse Books</h1>
+    <h3>Secondhand books up to 80% off retail prices </h3>
+    <div class="row">
+        <div class="col-md-2 mt-5 col-sm-12 style=" background-color: beige;">
+            <h3> Do a quick search here</h3>
+            <form method="GET">
+                {{search_form|crispy}}
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+        <div class="col mt-5">
 
-<body>
-    <h1>Books</h1>
-        <form method="GET">
-    {{search_form|crispy}}
-    <input type="submit" value="Search"/>
-    </form>
-    {% if request.user.is_authenticated  %}
-    <p>Welcome {{request.user}}</p>
-    {% else %}
-    <p>Please <a href="/accounts/login">Login</a></p>
-    {%endif%}
-    <p>
-        Here you can see all the books that we have.
-    </p>
-    <ul>
-        {%for book in books %}
-        <li>{{book.title}}
-            {% cloudinary book.cover %}
-            <a href="{% url 'update_book_route' book_id=book.id %}">Edit</a>
-            <a href="{% url 'add_to_cart' book_id=book.id %}">Add to Cart</a>  
-        </li>
-        {%endfor%}
-    </ul>
-</body>
-{%endblock%}
+            <div class="card-column row d-flex justify-content-around">
+                {%for book in books %}
+
+
+                <div class="card mt-4" style="width: 18rem;">
+                    {% cloudinary book.cover class="card-img-top" crop="fill"%}
+
+
+                    <div class="card-body">
+                        <h5 class="card-title card-title-admin">{{book.title}}</h5>
+                        <p class="card-text">
+                            {{book.author}}
+                            <br>
+                            S${{book.price}}
+                            
+                        </p>
+                        <a href="{% url 'add_to_cart' book_id=book.id %}" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+                {%endfor%}
+
+
+
+            </div>
+
+
+
+
+        </div>
+        {%endblock%}

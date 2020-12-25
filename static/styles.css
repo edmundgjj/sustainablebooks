@@ -1,3 +1,7 @@
 body {
-    background-color:grey;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#searchbar {
+    background-color: beige;
 }

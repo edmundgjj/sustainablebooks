@@ -1,10 +1,12 @@
 {%extends 'base.template.html'%}
+{% load static %}
+{% load cloudinary %}
 
 {%block content %}
 <h1>My Shopping Cart</h1>
-<a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
 {%for key, cart_item in cart.items %}
 <div class="card">
+    {% cloudinary cart_item.cover class="card-img-top" crop="fill"%}
     <div class="card-title">{{cart_item.title}}</div>
     <div class="card-body">
         <p>
@@ -13,10 +15,16 @@
             Quantity:<input name="qty" type="text" value="{{cart_item.qty}}" style="width:20px">
             <input type="submit" class="btn btn-primary btn-sm" value="Update Quantity" />
         </form>
-        Price: {{cart_item.price}}
+        Price: {{cart_item.price|floatformat:2}}
+        </p>
+        <p>
+        
         </p>
         <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart' book_id=cart_item.id %}">Remove</a>
     </div>
 </div>
 {%endfor%}
+${{total|floatformat:2}}
+<a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+<a href="{% url 'show_book_route' %}" class="btn btn-success">Browse Books</a>
 {%endblock%}
