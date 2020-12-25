@@ -29,7 +29,7 @@ SECRET_KEY = 'b&ff_%9tks+wxjj(v5pn=do7%%3a8=677ew*r8c=xin2)sx%e+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["sustainablebooks.herokuapp.com", "*"]
+ALLOWED_HOSTS = ["sustainablebooks.herokuapp.com"]
 
 
 # Application definition
