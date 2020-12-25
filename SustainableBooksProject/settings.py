@@ -28,7 +28,7 @@ SECRET_KEY = 'b&ff_%9tks+wxjj(v5pn=do7%%3a8=677ew*r8c=xin2)sx%e+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["sustainablebooks.herokuapp.com", "*"]
 
 
 # Application definition
@@ -61,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'SustainableBooksProject.urls'
@@ -171,3 +172,5 @@ CLOUDINARY = {
 
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
