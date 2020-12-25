@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 
 endpoint_secret = settings.ENDPOINT_SECRET
 
+
 def checkout(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -58,7 +59,9 @@ def checkout(request):
 
 
 def checkout_success(request):
-    return HttpResponse("Payment completed successfully")
+    request.session["shopping_cart"] = {}
+    messages.success(request, "Your purchases has been completed")
+    return redirect(reverse('show_book_route'))
 
 
 def checkout_cancelled(request):
