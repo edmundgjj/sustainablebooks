@@ -172,5 +172,6 @@ CLOUDINARY = {
 
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+ENDPOINT_SECRET = os.environ.get('ENDPOINT_SECRET')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

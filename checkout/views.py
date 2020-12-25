@@ -9,8 +9,7 @@ from django.contrib.sites.models import Site
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 
-endpoint_secret = "whsec_HRethPHNXffvnsUD3C0fuzixYpnkMvqB"
-
+endpoint_secret = settings.ENDPOINT_SECRET
 
 def checkout(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY

@@ -1,1 +1,1 @@
-web: gunicorn sustainablebooks.wsgi:application
+web: gunicorn SustainableBooksProject.wsgi:application
