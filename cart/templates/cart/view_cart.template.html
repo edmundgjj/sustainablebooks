@@ -3,7 +3,9 @@
 {% load cloudinary %}
 
 {%block content %}
+<div class = "container-fluid">
 <h1>My Shopping Cart</h1>
+<div class="card-column row d-flex justify content-around">
 {%for key, cart_item in cart.items %}
 <div class="card">
     {% cloudinary cart_item.cover class="card-img-top" crop="fill"%}
@@ -23,8 +25,14 @@
         <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart' book_id=cart_item.id %}">Remove</a>
     </div>
 </div>
+
 {%endfor%}
+</div>
+</div>
+
+<div class="row">
 ${{total|floatformat:2}}
 <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
 <a href="{% url 'show_book_route' %}" class="btn btn-success">Browse Books</a>
+</div>
 {%endblock%}
