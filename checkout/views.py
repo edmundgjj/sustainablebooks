@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse, reverse, redirect
+from django.contrib import messages
 from books.models import Book
 from .models import Purchase
 from django.conf import settings
@@ -20,42 +21,48 @@ def checkout(request):
     line_items = []
     all_book_ids = []
 
-    for book_id, cart_item in cart.items():
+    if not cart:
+        messages.error(request, "Cart is empty. Add items to checkout.")
+        return redirect(reverse('view_cart'))
 
-        book_model = get_object_or_404(Book, pk=book_id)
+    else:
 
-        item = {
-            "name": book_model.title,
-            "amount": int(book_model.price * 100),
-            "quantity": cart_item['qty'],
-            "currency": 'usd'
-        }
+        for book_id, cart_item in cart.items():
 
-        line_items.append(item)
-        all_book_ids.append({
-            'book_id': book_model.id,
-            'qty': cart_item['qty']
+            book_model = get_object_or_404(Book, pk=book_id)
+
+            item = {
+                "name": book_model.title,
+                "amount": int(book_model.price * 100),
+                "quantity": cart_item['qty'],
+                "currency": 'sgd'
+            }
+
+            line_items.append(item)
+            all_book_ids.append({
+                'book_id': book_model.id,
+                'qty': cart_item['qty']
+            })
+
+        current_site = Site.objects.get_current()
+        domain = current_site.domain
+
+        session = stripe.checkout.Session.create(
+            payment_method_types=["card"],
+            line_items=line_items,
+            client_reference_id=request.user.id,
+            metadata={
+                'all_book_ids': json.dumps(all_book_ids)
+            },
+            mode="payment",
+            success_url=domain + reverse('checkout_success'),
+            cancel_url=domain + reverse('checkout_cancelled')
+        )
+
+        return render(request, "checkout/checkout.template.html", {
+            'session_id': session.id,
+            'public_key': settings.STRIPE_PUBLISHABLE_KEY
         })
-
-    current_site = Site.objects.get_current()
-    domain = current_site.domain
-
-    session = stripe.checkout.Session.create(
-        payment_method_types=["card"],
-        line_items=line_items,
-        client_reference_id=request.user.id,
-        metadata={
-            'all_book_ids': json.dumps(all_book_ids)
-        },
-        mode="payment",
-        success_url=domain + reverse('checkout_success'),
-        cancel_url=domain + reverse('checkout_cancelled')
-    )
-
-    return render(request, "checkout/checkout.template.html", {
-        'session_id': session.id,
-        'public_key': settings.STRIPE_PUBLISHABLE_KEY
-    })
 
 
 def checkout_success(request):

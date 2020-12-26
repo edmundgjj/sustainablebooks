@@ -12,7 +12,7 @@ def add_to_cart(request, book_id):
             'id': book_id,
             'title': book.title,
             'price': float(book.price),
-            'qty': int(1)
+            'qty': int(1),
         }
 
         request.session['shopping_cart'] = cart
