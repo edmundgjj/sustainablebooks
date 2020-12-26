@@ -1,7 +1,12 @@
 body {
     font-family: 'Open Sans', sans-serif;
+    width: 100%;
 }
 
 #searchbar {
     background-color: beige;
+}
+
+.btn-primary {
+    background-color: #f8a57d;
 }
