@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, HttpResponse
+from django.shortcuts import render, get_object_or_404, HttpResponse, reverse, redirect
 from books.models import Book
 from .models import Purchase
 from django.conf import settings
@@ -60,12 +60,11 @@ def checkout(request):
 
 def checkout_success(request):
     request.session["shopping_cart"] = {}
-    messages.success(request, "Your purchases has been completed")
     return redirect(reverse('show_book_route'))
 
 
 def checkout_cancelled(request):
-    return HttpResponse('checkout cancelled')
+    return redirect(reverse('view_cart'))
 
 
 @csrf_exempt
@@ -115,21 +114,3 @@ def handle_payment(session):
         purchase.save()
 
     return HttpResponse(status=200)
-
-
-def handle_payment(session):
-    # print(session)
-    user = get_object_or_404(User, pk=session["client_reference_id"])
-
-    # change the metadata from string back to array
-    all_book_ids = session["metadata"]["all_book_ids"].split(",")
-
-    # go through each book id
-    for book_id in all_book_ids:
-        book_model = get_object_or_404(Book, pk=book_id)
-
-        # create the purchase model
-        purchase = Purchase()
-        purchase.book_id = book_model
-        purchase.user_id = user
-        purchase.save()

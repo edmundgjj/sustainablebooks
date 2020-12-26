@@ -4,5 +4,5 @@ import home.views
 
 urlpatterns = [
     path('', home.views.index),
-    path('story', home.views.about_us)
+    path('tradein', home.views.about_us, name="about_us")
 ]
