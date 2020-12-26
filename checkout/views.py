@@ -65,7 +65,7 @@ def checkout_success(request):
 
 
 def checkout_cancelled(request):
-    return redirect(reverse('view_cart'))
+    return HttpResponse('checkout cancelled')
 
 
 @csrf_exempt

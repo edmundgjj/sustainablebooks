@@ -4,24 +4,64 @@
 {%block head_title%}Book Cycle - Buy Pre-Owned Books{%endblock%}
 
 {%block content%}
-<div class="row">
-    <div class="col d-sm-none d-md-block"></div>
-    <div class="col-md-8 mt-5 col-sm-12">
-        <div class="jumbotron text-center"
-            style="background-image: url(https://images.unsplash.com/photo-1504036764568-17ae585d4619?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80); background-position: center; color:white;">
-            <h1 class="font-weight-bold">BookCycling</h1>
-            <h2>Keeping it green, one book at a time.</h2>
-            <br>
+<div class="container-fluid">
+    <!-- Hero Section -->
+    <div class="row">
+        <div class="col d-sm-none d-md-block"></div>
+        <div class="col-md-8 mt-5 col-sm-12">
+            <div class="jumbotron text-center"
+                style="background-image: url(https://images.unsplash.com/photo-1504036764568-17ae585d4619?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80); background-position: center; color:white;">
+                <h1 class="font-weight-bold">BookCycling</h1>
+                <h2>Keeping it green, one book at a time.</h2>
+                <br>
 
-            <p class="mt-5">Buy pre-owned books at a discount. Or, trade-in yours and get paid upfront. It's that
-                simple.</p>
-            <p class="lead mt-2">
-                <a class="btn btn-primary btn-lg" href="{% url 'show_book_route' %}" role="button">Buy Books</a>
-                <a class="btn btn-outline-light btn-lg" href="#" role="button">Trade-in Books</a>
-            </p>
+                <p class="mt-5">Buy pre-owned books at a discount. Or, trade-in yours and get paid upfront. It's that
+                    simple.</p>
+                <p class="lead mt-2">
+                    <a class="btn btn-primary btn-lg" href="{% url 'show_book_route' %}" role="button">Buy Books</a>
+                    <a class="btn btn-outline-light btn-lg" href="#" role="button">Trade-in Books</a>
+                </p>
+            </div>
         </div>
+        <div class="col d-sm-none d-md-block"></div>
     </div>
-    <div class="col d-sm-none d-md-block"></div>
-</div>
 
-{%endblock%}
+    <!-- Buy Books Section-->
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h1>Used Books in Great Condition</h1>
+                <h3>From 30 to 90 percent off retail price</h3>
+                <div class="row">
+                    <div class="col-4">
+                        <img style="width: 300px; height: auto;" src="https://images.unsplash.com/photo-1586279026128-a5aa814dee39?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+                    </div>
+                    <div class="col-8">
+                        <ul style="font-size: x-large;">
+                            <li>Every book checked for quality</li>
+                            <li>Save trees and money</li>
+                            <li>Growing selection of books</li>
+                        </ul>
+                        <a class="btn btn-primary" href="{% url 'show_book_route' %}" role="button">Browse Books</a>
+                    </div>
+                    
+                </div>
+            <div class="col-2"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Trade-in Section-->
+    <div class="row">
+
+    </div>
+
+
+
+
+
+    {%endblock%}

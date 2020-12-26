@@ -10,8 +10,10 @@ body {
 .btn-primary {
     background-color: #ee885b;
     color:white;
+    border-width: 0px;
 }
 
-.brand-primary:hover {
+.btn-primary:hover {
     background-color: #ea6461;
 }
+
