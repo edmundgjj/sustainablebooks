@@ -5,7 +5,6 @@
 
 {%block content%}
 <div class="container-fluid">
-    <!-- Hero Section -->
     <div class="row">
         <div class="col d-sm-none d-md-block"></div>
         <div class="col-md-8 mt-5 col-sm-12">
@@ -25,19 +24,23 @@
         </div>
         <div class="col d-sm-none d-md-block"></div>
     </div>
-
-    <!-- Buy Books Section-->
-    <div class="container-fluid mt-5">
+</div>
+<!-- Buy Books Section-->
+<div style="background-color: white;">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-md-8 offset-md-2">
                 <h1>Used Books in Great Condition</h1>
                 <h3>From 30 to 90 percent off retail price</h3>
-                <div class="row">
-                    <div class="col-4">
-                        <img style="width: 300px; height: auto;" src="https://images.unsplash.com/photo-1586279026128-a5aa814dee39?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+                <div class="row mt-5">
+                    <div class="col-md-12 col-lg-5">
+                        <figure class="figure">
+                            <img src="https://images.unsplash.com/photo-1586279026128-a5aa814dee39?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                                class="figure-img img-fluid rounded"
+                                alt="A generic square placeholder image with rounded corners in a figure.">
+                        </figure>
                     </div>
-                    <div class="col-8">
+                    <div class="col-md-12 col-lg-7">
                         <ul style="font-size: x-large;">
                             <li>Every book checked for quality</li>
                             <li>Save trees and money</li>
@@ -45,23 +48,11 @@
                         </ul>
                         <a class="btn btn-primary" href="{% url 'show_book_route' %}" role="button">Browse Books</a>
                     </div>
-                    
+
                 </div>
-            <div class="col-2"></div>
             </div>
         </div>
-
     </div>
+</div>
 
-
-
-    <!-- Trade-in Section-->
-    <div class="row">
-
-    </div>
-
-
-
-
-
-    {%endblock%}
+{% endblock %}
