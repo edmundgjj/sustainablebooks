@@ -33,6 +33,8 @@ In general, the online storefront allows the user to:
 * To attract more customers and reduce the checkout steps, allow users to buy books without signing up for an account 
 * Get information on how to trade-in books 
 
+To guide the development, I visualised the concept with the core pages of Homepage, Browse Books and Cart Page which requires customise design on Figma. You can view the wireframes [here](https://www.figma.com/file/WH9n7sjWXB18WOa5MdOvtk/Untitled?node-id=0%3A1).
+
 #### User Stories:
 __Buying Book__ 
 * As a customer who wants to buy books, I can see all the books currently available for purchase. 
