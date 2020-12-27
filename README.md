@@ -1,4 +1,4 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+<img src="https://ibb.co/nr6nvz2">
 
 Welcome edmundgjj,
 
