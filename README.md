@@ -7,7 +7,7 @@ BookCycle is a fictitious pre-owned books recycling service in Singapore that bu
 As such, Bookcycle website provides a modern, responsive book buying experience for customers who wants to learn more about the business and buy pre-owned books onine easily. With a shopping cart feature, it makes it easy for the customer to buy multiple books at a time and the integration with stripe checkout makes online payment via card all the more seamless. 
 
 You can browse the website [here](https://sustainablebooks.herokuapp.com/).
-You can access the admin dashboard [here](https://sustainablebooks.herokuapp.com/) 
+You can access the admin dashboard [here](https://sustainablebooks.herokuapp.com/admin) 
 
 Login Information
 Admin:
