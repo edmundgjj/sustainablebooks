@@ -95,15 +95,15 @@ The test scenarios can be found [here](https://docs.google.com/spreadsheets/d/1_
 
 The project is deployed onto Heroku via Gitpod IDE using the following command lines: 
 
-`heroku login -i`
-`heroku create <APP NAME>`
-Creating a Procfile
-Changing `ALLOWED_HOSTS = ["sustainablebooks.herokuapp.com"]` in settings.py
-Generating requirements.txt `pip3 free --local > requirements.txt`
-Uploading .env credentials into Heroku Col Var. 
-`git add *`
-`git commit -m "message"`
-`git push heroku master`
+* `heroku login -i`
+* `heroku create <APP NAME>`
+* Creating a Procfile
+* Changing `ALLOWED_HOSTS = ["sustainablebooks.herokuapp.com"]` in settings.py
+* Generating requirements.txt `pip3 free --local > requirements.txt`
+* Uploading .env credentials into Heroku Col Var. 
+* `git add *`
+* `git commit -m "message"`
+* `git push heroku master`
 
 ## Credits
 
