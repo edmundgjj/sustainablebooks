@@ -18,7 +18,7 @@
                     simple.</p>
                 <p class="lead mt-2">
                     <a class="btn btn-primary btn-lg" href="{% url 'show_book_route' %}" role="button">Buy Books</a>
-                    <a class="btn btn-outline-light btn-lg" href="#" role="button">Trade-in Books</a>
+                    <a class="btn btn-outline-light btn-lg" href="{% url 'about_us' %}" role="button">Trade-in Books</a>
                 </p>
             </div>
         </div>
@@ -28,31 +28,86 @@
 <!-- Buy Books Section-->
 <div style="background-color: white;">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <h1>Used Books in Great Condition</h1>
-                <h3>From 30 to 90 percent off retail price</h3>
+        <div class="row pt-3 pb-5">
+            <div class="col-md-8 offset-md-2" style="padding-top: 2rem;">
+                <h2 class="font-weight-bold">Buy Pre-Owned Books in Great Condition</h2>
+                <h4>From 30 to 90 percent off retail price</h4>
                 <div class="row mt-5">
                     <div class="col-md-12 col-lg-5">
                         <figure class="figure">
                             <img src="https://images.unsplash.com/photo-1586279026128-a5aa814dee39?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                                class="figure-img img-fluid rounded"
-                                alt="A generic square placeholder image with rounded corners in a figure.">
+                                class="figure-img img-fluid rounded" alt="Image of an opened book">
                         </figure>
                     </div>
-                    <div class="col-md-12 col-lg-7">
-                        <ul style="font-size: x-large;">
-                            <li>Every book checked for quality</li>
-                            <li>Save trees and money</li>
-                            <li>Growing selection of books</li>
-                        </ul>
-                        <a class="btn btn-primary" href="{% url 'show_book_route' %}" role="button">Browse Books</a>
+                    <div class="col-md-12 col-lg-7 montserrat">
+                        <div class="row align-items-center rounded justify-content-center text-center"
+                            style="height:5rem; font-size: large;">
+                            <i class="fas fa-check-circle mr-2" style="color:green; font-size:larger;"></i> Every book
+                            is vetted under our stringent quality assurance process.</div>
+                        <div class="row align-items-center rounded justify-content-center text-center"
+                            style="height:5rem; font-size: large;">
+                            <i class="fas fa-check-circle mr-2" style="color:green; font-size:larger;"></i> Save money
+                            and trees all at the same time </div>
+                        <div class="row align-items-center rounded justify-content-center text-center"
+                            style="height:5rem; font-size: large;">
+                            <i class="fas fa-check-circle mr-2" style="color:green; font-size:larger;"></i> A growing
+                            book collection with more bookcyclers joining everyday </div>
+                        <div class="row align-items-center justify-content-center" style="height:5rem;"><a
+                                class="btn btn-primary" href="{% url 'show_book_route' %}" role="button">Browse
+                                Books</a></div>
+
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div style="background-color: #e7ffee;">
+    <div class="container-fluid">
+        <div class="row pt-3 pb-5">
+            <div class="col-md-8 offset-md-2" style="padding-top: 2rem;">
+                <h2 class="font-weight-bold">Trade-in Your Books</h2>
+                <h4>Fuss-free process to get paid for your pre-owned books</h4>
+                <div class="row mt-5">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                            <h4 class="title">List your books</h4>
+                            <p class="description">Send us an email with a picture of each book and their title and
+                                ISBN. We will vet the books and provide a quote.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-box-open"></i></div>
+                            <h4>Arrange for pick-up</h4>
+                            <p>After receiving your email, we will reply with a few slots for us to pick-up your books
+                                and a final quotation based on photos you sent.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-comment-dollar"></i></div>
+                            <h4>Get paid</h4>
+                            <p>When your book is sold on our platform, we will contact you and arrange for payment via
+                                bank transfer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 d-flex justify-content-center"><a class="btn btn-primary" href="{% url 'about_us' %}"
+                        role="button">Trade-in Books</a></div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div style="background-color: #004c4c;">
+<div class="container d-flex justify-content-center mt-2 pb-2 pt-2" style=" color: white;">
+    <p> BookCyle | Fictitious Company | Created with <i class="fas fa-grin-hearts"></i> </p>
+</div>
 </div>
 
 {% endblock %}

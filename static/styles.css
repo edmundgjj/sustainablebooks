@@ -17,4 +17,21 @@ body {
     background-color: #ea6461;
 }
 
+.btn-primary:active {
+    border-color: #d3423f;
+}
 
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.icon {
+    color:#ea6461;
+    font-size:36px;
+}
+
+.icon-box {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    padding: 15px;
+}
